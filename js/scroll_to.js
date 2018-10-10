@@ -29,7 +29,6 @@ $('.scroll_to').bind('click', function (e) {
         if (timeRate > 2 && $('html').find('.preloader').length !== 0) {
             $('.preloader').delay(0).fadeIn('slow');
             $('.preloader').delay(timeRate * 300).fadeOut('slow');
-            console.log($('html').find('.preloader').length);
         }
         $('html, body').stop().animate({
             scrollTop: anchor
