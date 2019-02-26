@@ -1,27 +1,19 @@
 <!DOCTYPE HTML>
-<html lang="ru">
+<html>
 
 <head>
-    <!-- title -->
-    <title></title>
-    <meta charset="utf-8">
-    <!-- description -->
-    <meta name="description" content="">
-    <!-- keywords -->
-    <meta name="keywords" content="">
-    <!-- scale -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- icon -->
-    <link rel="icon" href="img/.." type="image/ico">
-    <link rel="shortcut icon" href="img/.." type="image/ico">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/scroll_to.css">
+    <link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 
 <body>
     <main>
-        <figure class="preloader"></figure>
+        <!-- preloader -->
+        <figure id="preloader"></figure>
+        <!-- on top button -->
         <a href="#one" class="on_top_button scroll_to" title="on top">^</a>
+        <!-- links scroll_to -->
         <nav class="nav_bar">
             <a href="#one" class="scroll_to">1</a>
             <a href="#two" class="scroll_to">2</a>
@@ -29,6 +21,7 @@
             <a href="#four" class="scroll_to">4</a>
             <a href="#five" class="scroll_to">5</a>
         </nav>
+        <!-- screens -->
         <section id="one">
             <p>1</p>
         </section>
@@ -47,8 +40,22 @@
     </main>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- JS -->
+    <!-- preloader -->
+    <script type="text/javascript" src="js/preloader.js"></script>
+    <!-- scroll_to -->
     <script type="text/javascript" src="js/scroll_to.js"></script>
+    <script>
+        preloader({
+            preloaderId: 'preloader',
+            delay: 600
+        });
+        scrollTo({
+            initPosition: true,
+            preloader: true,
+            preloaderId: 'preloader',
+            scrollClass: 'scroll_to'
+        });
+    </script>
 </body>
 
 </html>

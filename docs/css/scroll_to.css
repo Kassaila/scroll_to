@@ -1,3 +1,4 @@
+/* reset default brouser styles */
 * {
     box-sizing: border-box;
 }
@@ -43,6 +44,16 @@ a {
 ul {
     list-style: none;
 }
+/* "preloader" (required)*/
+#preloader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+    background-color: rgb(236, 226, 167);
+    z-index: 100;
+}
+/* All styles for example (not required) */
 /* main style */
 html {
     font-family: 'Arial', san-serif;
@@ -51,21 +62,7 @@ html {
     font-weight: 400;
     color: #000;
 }
-/* "preloader" */
-.preloader {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(236, 226, 167);
-    z-index: 100;
-}
-.preloader * {
-    display: none;
-}
-/* "scroll_to", "on_top_button", nav item */
+/* "on_top_button", nav item */
 .nav_bar {
     position: fixed;
     top: 50%;

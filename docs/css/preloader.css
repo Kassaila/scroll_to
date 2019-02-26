@@ -1,0 +1,14 @@
+/* "preloader" (required)*/
+#preloader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 226, 167);
+    z-index: 100;
+}
+#preloader * {
+    display: none;
+}
