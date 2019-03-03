@@ -4,6 +4,9 @@
  */
 // "scroll_to"
 function scrollTo(setProp) {
+    // Default options | Настройки по умолчанию
+    setProp.initPosition = setProp.initPosition !== undefined && typeof setProp.initPosition === 'boolean' ? setProp.initPosition : true;
+    setProp.initScrHeight = setProp.initScrHeight !== undefined && typeof setProp.initScrHeight === 'number' && setProp.initScrHeight >= 0.1 && setProp.initScrHeight <= 1 ? setProp.initScrHeight : 0.75;
     // "page_position" (top or bottom)
     let scrollBottom = () => $(window).scrollTop() + screen.availHeight,
         initPagePos = () => {
@@ -24,6 +27,10 @@ function scrollTo(setProp) {
         $(window).scroll(() => initPagePos());
         $(window).resize(() => initPagePos());
     }
+    // Default options | Настройки по умолчанию
+    setProp.scrollClass = setProp.scrollClass !== undefined && typeof setProp.scrollClass === 'string' && setProp.scrollClass !== '' ? setProp.scrollClass : 'scroll_to';
+    setProp.scrollDelay = setProp.scrollDelay !== undefined && typeof setProp.scrollDelay === 'number' && setProp.scrollDelay >= 0 ? setProp.scrollDelay : 600;
+    setProp.preloader = setProp.preloader !== undefined && typeof setProp.preloader === 'boolean' ? setProp.preloader : false;
     // "scroll_to", "on_top_button"
     $('.' + setProp.scrollClass).bind('click', function (e) {
         let anchor = $($(this).attr('href')).offset().top,

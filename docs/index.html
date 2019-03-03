@@ -42,17 +42,22 @@
     <!-- preloader, scroll_to -->
     <script type="text/javascript" src="js/main.js"></script>
     <script>
+        // Example "preloader" | Пример "preloader"
         preloader({
-            preloaderId: 'preloader',
-            delay: 600
+            // ID preloader block (required) | ID блока preloader (обязателен)
+            preloaderId: 'preloader', // string
+            delay: 600 // number; default: 600
         });
+         // Example "scrollTo" | Пример "scrollTo"
         scrollTo({
-            scrollClass: 'scroll_to',
-            scrollDelay: 600,
-            preloader: true,
-            preloaderId: 'preloader',
-            initPosition: true,
-            initScrHeight: 0.75
+            scrollClass: 'scroll_to', // string; default: 'scroll_to'
+            scrollDelay: 600, // number; default: 600
+            preloader: true, // boolean; default: false
+            // ID preloader block (required) if preloader: true
+            // ID блока preloader (обязателен) если preloader: true
+            preloaderId: 'preloader', // string;
+            initPosition: true, // boolean; default: true
+            initScrHeight: 0.75 // number; range: (0.1; 1); default: 0.75
         });
     </script>
 </body>
