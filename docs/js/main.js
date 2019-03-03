@@ -2,6 +2,12 @@
  * {s} symonov.com
  * 2018
  */
+// "preloader"
+function preloader(setProp) {
+    $(window).on('load', () => {
+        $('#' + setProp.preloaderId).delay(setProp.delay).fadeOut('slow');
+    });
+}
 // "scroll_to"
 function scrollTo(setProp) {
     // "page_position" (top or bottom)

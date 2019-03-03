@@ -3,8 +3,7 @@
 
 <head>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/scroll_to.css">
-    <link rel="stylesheet" type="text/css" href="css/preloader.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
@@ -40,20 +39,20 @@
     </main>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- preloader -->
-    <script type="text/javascript" src="js/preloader.js"></script>
-    <!-- scroll_to -->
-    <script type="text/javascript" src="js/scroll_to.js"></script>
+    <!-- preloader, scroll_to -->
+    <script type="text/javascript" src="js/main.js"></script>
     <script>
         preloader({
             preloaderId: 'preloader',
             delay: 600
         });
         scrollTo({
-            initPosition: true,
+            scrollClass: 'scroll_to',
+            scrollDelay: 600,
             preloader: true,
             preloaderId: 'preloader',
-            scrollClass: 'scroll_to'
+            initPosition: true,
+            initScrHeight: 0.75
         });
     </script>
 </body>

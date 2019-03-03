@@ -1,4 +1,4 @@
-/* "preloader" (required)*/
+/* "preloader" for "scroll_to" (required)*/
 #preloader {
     height: 100%;
     width: 100%;
@@ -6,15 +6,4 @@
     display: none;
     background-color: rgb(236, 226, 167);
     z-index: 100;
-}
-/* "on_top_button" */
-.on_top_button {
-    position: fixed;
-    bottom: 20px;
-    right: 40px;
-    opacity: 1;
-    transition: 0.5s ease;
-}
-.page_top .on_top_button {
-    opacity: 0;
 }

@@ -1,11 +1,15 @@
+/**Developed by Dmytro Symonov
+ * {s} symonov.com
+ * 2018
+ */
 // "scroll_to"
 function scrollTo(setProp) {
     // "page_position" (top or bottom)
     let scrollBottom = () => $(window).scrollTop() + screen.availHeight,
         initPagePos = () => {
-            if (screen.availHeight * 0.75 > $(window).scrollTop()) {
+            if (screen.availHeight * setProp.initScrHeight > $(window).scrollTop()) {
                 $('html').addClass('page_top');
-            } else if ($('html').height() - screen.availHeight * 0.75 < scrollBottom()) {
+            } else if ($('html').height() - screen.availHeight * setProp.initScrHeight < scrollBottom()) {
                 $('html').addClass('page_bottom');
             } else {
                 $('html').removeClass('page_top page_bottom');
@@ -25,16 +29,17 @@ function scrollTo(setProp) {
         let anchor = $($(this).attr('href')).offset().top,
             timeRate = Math.round(Math.abs($(window).scrollTop() - anchor) / screen.availHeight);
         if (screen.availHeight * 0.75 < Math.abs($(window).scrollTop() - anchor)) {
-            if (timeRate > 2 && $('html').find('#' + setProp.preloaderId).length !== 0 && setProp.preloader) {
-                $('#' + setProp.preloaderId).delay(0).fadeIn('normal');
-                $('#' + setProp.preloaderId).delay(500).fadeOut('slow');
-                $('html, body').stop().animate({
+            if (setProp.preloader && $('html').find('#' + setProp.preloaderId).length !== 0 && timeRate > 2) {
+                $('#' + setProp.preloaderId).fadeIn('normal');
+                $('#' + setProp.preloaderId).delay(setProp.scrollDelay * 2 + 300).fadeOut('slow');
+                $('html, body').stop();
+                setTimeout(() => $('html, body').animate({
                     scrollTop: anchor
-                }, 1500);
+                }, setProp.scrollDelay * 2), 300);
             } else {
                 $('html, body').stop().animate({
                     scrollTop: anchor
-                }, timeRate * 500);
+                }, timeRate * setProp.scrollDelay);
             }
         }
         e.preventDefault();
