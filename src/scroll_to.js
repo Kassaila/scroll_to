@@ -37,7 +37,7 @@ function scrollTo(setProp) {
                 timeToAnchor = scrollToAnchor(currentPageId);
             setTimeout(() => {
                 if (setProp.anchorURL === true) window.location.hash = currentPageId;
-                setProp.scrollToCallback();
+                if (setProp.scrollToCallback !== undefined) setProp.scrollToCallback();
             }, timeToAnchor);
         }
     });
@@ -50,7 +50,7 @@ function scrollTo(setProp) {
                 let timeToAnchor = scrollToAnchor(otherPageId);
                 setTimeout(() => {
                     if (setProp.anchorURL === true) window.location.hash = otherPageId;
-                    setProp.scrollToCallback();
+                    if (setProp.scrollToCallback !== undefined) setProp.scrollToCallback();
                 }, timeToAnchor);
             }, 1500);
         });
