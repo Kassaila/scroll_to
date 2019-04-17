@@ -3,6 +3,7 @@
  * 2018
  */
 // scroll to
+// scroll to
 function scrollTo(setProp) {
     // Default options | Настройки по умолчанию
     setProp.scrollDelay = setProp.scrollDelay !== undefined && typeof setProp.scrollDelay === 'number' && setProp.scrollDelay >= 0 ? setProp.scrollDelay : 600;
@@ -34,11 +35,10 @@ function scrollTo(setProp) {
             event.preventDefault();
             let currentPageId = $(this).attr('href'),
                 timeToAnchor = scrollToAnchor(currentPageId);
-            if (setProp.anchorURL === true) {
-                setTimeout(() => {
-                    window.location.hash = currentPageId;
-                }, timeToAnchor);
-            }
+            setTimeout(() => {
+                if (setProp.anchorURL === true) window.location.hash = currentPageId;
+                setProp.scrollToCallback();
+            }, timeToAnchor);
         }
     });
     // other page scroll to anchor
@@ -48,11 +48,10 @@ function scrollTo(setProp) {
         $(document).ready(() => {
             setTimeout(() => {
                 let timeToAnchor = scrollToAnchor(otherPageId);
-                if (setProp.anchorURL === true) {
-                    setTimeout(() => {
-                        window.location.hash = otherPageId;
-                    }, timeToAnchor);
-                }
+                setTimeout(() => {
+                    if (setProp.anchorURL === true) window.location.hash = otherPageId;
+                    setProp.scrollToCallback();
+                }, timeToAnchor);
             }, 1500);
         });
     }
